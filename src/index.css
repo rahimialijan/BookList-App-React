@@ -9,13 +9,6 @@ body {
   background-color: #f5f6fa;
 }
 
-#root {
-  margin: 0;
-  padding: 0 0 8%;
-  border-radius: 4px;
-  box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
-  background-color: #fafafa;
-}
 .navbar{
   position: fixed;
   top: 0;
@@ -26,6 +19,7 @@ body {
 }
 .container {
   padding: 4%;
+  margin-top: 50px;
 }
 
 .line {
