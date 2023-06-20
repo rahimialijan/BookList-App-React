@@ -11,24 +11,21 @@ const Form = ({ booklength }) => {
     title: '',
     author: '',
     category: '',
-    status: 'Not Started',
-    progress: 0,
-    current_chapter: 'N/A',
   });
+  const clearField = () => {
+    setBook({
+      id: booklength + 1,
+      title: '',
+      author: '',
+      category: '',
+    });
+  };
 
   const addNewBook = (e) => {
     e.preventDefault();
     if (book.title !== '') {
       dispatch(addBook({ id: booklength + 1, ...book }));
-      setBook({
-        id: booklength + 1,
-        title: '',
-        author: '',
-        category: '',
-        status: 'Not Started',
-        progress: 0,
-        current_chapter: 'N/A',
-      });
+      clearField();
     }
   };
 
