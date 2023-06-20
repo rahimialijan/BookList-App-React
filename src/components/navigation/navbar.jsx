@@ -14,7 +14,7 @@ const Navigation = () => (
     </div>
     <ul className="nav-link">
       <li>
-        <NavLink className="list" to="books">
+        <NavLink className="list" to="homepage">
           Books
         </NavLink>
       </li>
