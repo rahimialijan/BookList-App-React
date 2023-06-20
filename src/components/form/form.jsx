@@ -11,9 +11,6 @@ const Form = ({ booklength }) => {
     title: '',
     author: '',
     category: '',
-    status: 'Not Started',
-    progress: 0,
-    currentChapter: 'N/A',
   });
   const clearField = () => {
     setBook({
@@ -21,9 +18,6 @@ const Form = ({ booklength }) => {
       title: '',
       author: '',
       category: '',
-      status: 'Not Started',
-      progress: 0,
-      currentChapter: 'N/A',
     });
   };
 
