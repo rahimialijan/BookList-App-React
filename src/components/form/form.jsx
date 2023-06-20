@@ -13,22 +13,25 @@ const Form = ({ booklength }) => {
     category: '',
     status: 'Not Started',
     progress: 0,
-    current_chapter: 'N/A',
+    currentChapter: 'N/A',
   });
+  const clearField = () => {
+    setBook({
+      id: booklength + 1,
+      title: '',
+      author: '',
+      category: '',
+      status: 'Not Started',
+      progress: 0,
+      currentChapter: 'N/A',
+    });
+  };
 
   const addNewBook = (e) => {
     e.preventDefault();
     if (book.title !== '') {
       dispatch(addBook({ id: booklength + 1, ...book }));
-      setBook({
-        id: booklength + 1,
-        title: '',
-        author: '',
-        category: '',
-        status: 'Not Started',
-        progress: 0,
-        current_chapter: 'N/A',
-      });
+      clearField();
     }
   };
 

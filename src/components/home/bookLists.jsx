@@ -6,7 +6,7 @@ const bookList = [
     author: 'Suzanne Collins',
     status: 'Completed',
     progress: 60,
-    currentChapterr: 'Chapter 17',
+    currentChapter: 'Chapter 17',
   },
   {
     id: '2',
@@ -15,7 +15,7 @@ const bookList = [
     author: 'Frank Herbert',
     status: 'Completed',
     progress: 8,
-    currentChapterr: 'Chapter 3: "A Lesson Learned"',
+    currentChapter: 'Chapter 3: "A Lesson Learned"',
   },
 ];
 
