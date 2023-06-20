@@ -1,25 +1,34 @@
-import "./form.css";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
-import { addBook } from "../redux/books/booksSlice";
+/* eslint-disable react/prop-types */
+import './form.css';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { addBook } from '../redux/books/booksSlice';
 
 const Form = ({ booklength }) => {
   const dispatch = useDispatch();
   const [book, setBook] = useState({
     id: booklength + 1,
-    title: "",
-    author: "",
-    category: "",
-    status: "Not Started",
+    title: '',
+    author: '',
+    category: '',
+    status: 'Not Started',
     progress: 0,
-    currentChapter: "N/A",
+    current_chapter: 'N/A',
   });
 
   const addNewBook = (e) => {
     e.preventDefault();
-    if (book.title !== "") {
+    if (book.title !== '') {
       dispatch(addBook({ id: booklength + 1, ...book }));
-      setBook({ title: "", author: "", category: "" });
+      setBook({
+        id: booklength + 1,
+        title: '',
+        author: '',
+        category: '',
+        status: 'Not Started',
+        progress: 0,
+        current_chapter: 'N/A',
+      });
     }
   };
 
@@ -44,7 +53,18 @@ const Form = ({ booklength }) => {
           value={book.title}
           onChange={handleChange}
         />
+        <input
+          required
+          name="author"
+          className="input input-book"
+          type="text"
+          placeholder="Book author"
+          value={book.author}
+          onChange={handleChange}
+        />
         <select
+          name="category"
+          value={book.category}
           className="input category-input"
           onChange={handleChange}
           required

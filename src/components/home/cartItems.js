@@ -1,6 +1,7 @@
-import "./homepage.css";
-import { useDispatch } from "react-redux";
-import { removeBook } from "../redux/books/booksSlice";
+/* eslint-disable react/prop-types */
+import './homepage.css';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/booksSlice';
 
 const CartItems = ({
   id,
@@ -9,7 +10,7 @@ const CartItems = ({
   author,
   progress,
   status,
-  current_chapter,
+  currentChapter,
 }) => {
   const dispatch = useDispatch();
   return (
@@ -24,6 +25,7 @@ const CartItems = ({
           </button>
           <div className="vertical-line" />
           <button
+            type="button"
             className="book-action-button"
             onClick={() => console.log(dispatch(removeBook(id)))}
           >
@@ -40,14 +42,17 @@ const CartItems = ({
           <div className="circular-progress" />
         </div>
         <div className="progress-stat">
-          <p className="percent-complete">{progress}%</p>
+          <p className="percent-complete">
+            {progress}
+            %
+          </p>
           <p className="completed">{status}</p>
         </div>
         <div className="vertical-line progress-line" />
         <div className="current-chapter-container">
           <div>
             <p className="current-chapter-label">CURRENT CHAPTER</p>
-            <p className="current-chapter">{current_chapter}</p>
+            <p className="current-chapter">{currentChapter}</p>
           </div>
           <div>
             <button className="primary-button" type="button">
@@ -59,5 +64,4 @@ const CartItems = ({
     </div>
   );
 };
-
 export default CartItems;
