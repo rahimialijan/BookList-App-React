@@ -1,18 +1,19 @@
 /* eslint-disable react/prop-types */
 import './homepage.css';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { useState } from 'react';
+import { deleteBooks } from '../redux/books/booksSlice';
 
-const CartItems = ({
-  item_id: itemId, title, author, category,
-}) => {
+const CartItems = ({ book }) => {
   const dispatch = useDispatch();
+  const bookState = useState(book)[0];
+
   return (
-    <div key={itemId} className="book-list-container">
+    <div key={bookState.id} className="book-list-container">
       <div className="book-info">
-        <h2 className="book-category">{category}</h2>
-        <h3 className="book-title">{title}</h3>
-        <h6 className="book-author">{author}</h6>
+        <h2 className="book-category">{bookState.category}</h2>
+        <h3 className="book-title">{bookState.title}</h3>
+        <h6 className="book-author">{bookState.author}</h6>
         <div className="book-actions">
           <button className="book-action-button" type="submit">
             Comments
@@ -21,7 +22,9 @@ const CartItems = ({
           <button
             type="button"
             className="book-action-button"
-            onClick={() => dispatch(removeBook(itemId))}
+            onClick={() => {
+              dispatch(deleteBooks(bookState.id));
+            }}
           >
             Remove
           </button>

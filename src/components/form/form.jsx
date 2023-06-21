@@ -2,39 +2,27 @@
 import './form.css';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
-import { addBook } from '../redux/books/booksSlice';
+import { addBooks } from '../redux/books/booksSlice';
 
 const Form = ({ booklength }) => {
   const dispatch = useDispatch();
-  const [book, setBook] = useState({
-    id: booklength + 1,
-    title: '',
-    author: '',
-    category: '',
-  });
-  const clearField = () => {
-    setBook({
-      id: booklength + 1,
-      title: '',
-      author: '',
-      category: '',
-    });
-  };
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
 
   const addNewBook = (e) => {
     e.preventDefault();
-    if (book.title !== '') {
-      dispatch(addBook({ id: booklength + 1, ...book }));
-      clearField();
-    }
-  };
-
-  const handleChange = (e) => {
-    e.preventDefault();
-    setBook({
-      ...book,
-      [e.target.name]: e.target.value,
-    });
+    dispatch(
+      addBooks({
+        id: booklength + 1,
+        title,
+        author,
+        category,
+      }),
+    );
+    setTitle('');
+    setAuthor('');
+    setCategory('');
   };
 
   return (
@@ -47,8 +35,8 @@ const Form = ({ booklength }) => {
           className="input input-book"
           type="text"
           placeholder="Book Title"
-          value={book.title}
-          onChange={handleChange}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <input
           required
@@ -56,14 +44,14 @@ const Form = ({ booklength }) => {
           className="input input-book"
           type="text"
           placeholder="Book author"
-          value={book.author}
-          onChange={handleChange}
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
         />
         <select
           name="category"
-          value={book.category}
+          value={category}
           className="input category-input"
-          onChange={handleChange}
+          onChange={(e) => setCategory(e.target.value)}
           required
         >
           <option value="Action">Action</option>
