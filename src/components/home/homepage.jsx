@@ -4,14 +4,14 @@ import CartItems from './cartItems';
 import Form from '../form/form';
 
 const Homepage = () => {
-  const { bookList } = useSelector((store) => store.book);
+  const books = useSelector((state) => state.books);
+
   return (
     <>
-      {bookList.map((item) => (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <CartItems key={item.id} {...item} />
+      {books.map((book) => (
+        <CartItems key={book.id} book={book} />
       ))}
-      <Form booklength={bookList.length} />
+      <Form booklength={books.length} />
     </>
   );
 };
