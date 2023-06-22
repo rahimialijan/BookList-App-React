@@ -14,12 +14,12 @@ const Navigation = () => (
     </div>
     <ul className="nav-link">
       <li>
-        <NavLink className="list" to="homepage">
+        <NavLink className="list" to="/homepage">
           Books
         </NavLink>
       </li>
       <li>
-        <NavLink className="list" to="categories">
+        <NavLink className="list" to="/categories">
           CATEGORIES
         </NavLink>
       </li>

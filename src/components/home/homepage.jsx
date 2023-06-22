@@ -1,4 +1,3 @@
-import './homepage.css';
 import { useSelector } from 'react-redux';
 import CartItems from './cartItems';
 import Form from '../form/form';
