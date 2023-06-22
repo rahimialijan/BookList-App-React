@@ -1,15 +1,20 @@
 /* eslint-disable react/prop-types */
-import './homepage.css';
+import './cartItems.css';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { deleteBooks } from '../redux/books/booksSlice';
 
 const CartItems = ({ book }) => {
   const dispatch = useDispatch();
   const bookState = useState(book)[0];
+  const [randomNumber, setRandomNumber] = useState();
+
+  useEffect(() => {
+    setRandomNumber(Math.floor(Math.random() * 34) + 51);
+  });
 
   return (
-    <div key={bookState.id} className="book-list-container">
+    <div className="book-list-container">
       <div className="book-info">
         <h2 className="book-category">{bookState.category}</h2>
         <h3 className="book-title">{bookState.title}</h3>
@@ -39,7 +44,10 @@ const CartItems = ({ book }) => {
           <div className="circular-progress" />
         </div>
         <div className="progress-stat">
-          <p className="percent-complete">70%</p>
+          <p className="percent-complete">
+            {randomNumber}
+            %
+          </p>
           <p className="completed">Completed</p>
         </div>
         <div className="vertical-line progress-line" />
